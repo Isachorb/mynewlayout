@@ -12,6 +12,7 @@
   background-color: #000;
 }
 
+/* Header above nav */
 #practicelogo{
   height: 120px;
 }
@@ -29,8 +30,10 @@
   font-weight:bold;
   word-wrap:break-word;
 }
+/* Tagline section for practice*/
 #taglineTxt{
   color:#fff;
+  padding-top:5px;
   margin:0;
   font-size:16px;
 }
@@ -77,6 +80,7 @@
     margin-left:15px;
     margin-right:0;
   }
+
   .navbar li:last-child::after {
     content:none;
   }
@@ -104,6 +108,40 @@
     z-index:1000;
   }
 
+      /* Sub Nav (Dropdowns) */
+    .dropdown>ul {
+      text-align:left;
+    }
+    .dropdown-menu {
+      background-color: #adadad; /*#86b36c;*/ /* Light Theme Color 01 */
+      left:-10px;
+      margin:0;
+      max-height:393px;
+      overflow:scroll;
+      /*display:none;*/
+    }
+    /*
+    .dropdown:hover .dropdown-menu {
+      display:block;
+    }
+    */
+    .dropdown-menu>li {
+      width:100%;
+      padding:0;
+    }
+    .dropdown-menu>li::after {
+      content: none;
+    }
+    .dropdown-menu>li>a {
+      color:#fff;
+      padding:9px 20px;
+    }
+    .dropdown-menu>li>a:hover {
+      background-color: #adadad;
+      color:#fff;
+    }
+
+
   /* Dropdown Menu */
   .main-nav-item {
     position:relative;
@@ -123,18 +161,29 @@
     margin-left:-24px;
     text-align:left !important;
   }
-      .sub-nav-menu-1 li {
-        padding:5px;
-      }
+
+  .sub-nav-menu-1 li {
+    padding:5px;
+  }
 
 
+/* hero image*/
+.heroImg {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tagline section under hero img*/
 #tagline_section{
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+  padding-top: 10px;
   box-shadow: 5px 5px 30px #888888;
 }
 
+/*headings for the different sections */
  h2 {
   margin-bottom: 40px;
 }
@@ -146,14 +195,15 @@
 #offpolTxt{
   padding-right:150px;
 }
-/* Image highlight section */
+
+/* Image highlight section 
 #highlight_section {
     background-color: blanchedalmond;
     padding-left: 20%; 
     padding-right: 20%;
     width:100%;
     text-align: center;
-}
+}*/
 
 /* About section */
 #aboutContent {
@@ -174,7 +224,7 @@
   margin-top: 45px;
 }
 
-/* Insurance and patient edu accordion list sections */
+/* Insurance accordion list sections */
 #accordIns { 
   text-align: center;
 }
@@ -184,8 +234,6 @@
   padding-right: 60px;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
   max-width: 100%; 
   background-color: #E5E5E5;
 }
@@ -229,7 +277,8 @@
   float: left;
 }
 
-/* Office policies */
+
+/* office policies section */ 
 #offPolContent {
     padding-left: 60px;
     padding-right: 60px;
@@ -238,15 +287,10 @@
     max-width: 100%;; 
 }
 
-  /* office policies section */
-  #buttons{
-    margin-top:70px;
-  }
-
-
-
-/* office policies section */ 
-
+/* office policies buttons */
+#buttons{
+  margin-top:70px;
+}
 .buttonappt {
   margin-top: 20px;
 }
@@ -254,6 +298,7 @@
   margin-bottom:12px;
 }
 .btnimg{
+  float: left;
   max-width: 300px; 
   margin-left: auto; 
   margin-right: auto; 
@@ -313,12 +358,11 @@
   font-size:15px;
 }
 #locationInfo_map {
-  padding-top:3%;
   width: 90%;
+  margin-top: 30px;
   
 }
-
-
+  
 th {
   text-align: right;
 }
@@ -430,6 +474,8 @@ footer a {
       display:none !important;
   }
 
+
+
   /* main content after nav for desktop screens*/
   .mainContent {
     margin-top: 0px;
@@ -442,25 +488,12 @@ footer a {
    
   }
 
-
-  /*Insurance accordion list section
-  #accordIns {
-  padding-left: 60px;
-  padding-right: 60px;
-  } */
-
   /*office policies section desktop*/
   #offPolContent {
     padding-left: 60px;
     padding-right: 60px;
   
   }
-
-  /*patient edu accordion list section 
-  #accordEdu {
-  padding-left: 60px;
-  padding-right: 60px;
-  }*/
 
   /* office policies section */
   #buttons{
@@ -530,6 +563,7 @@ footer a {
     font-family: 'Open Sans', sans-serif;
     padding-left:0;
     margin-bottom:0;
+    width: 100%;
   }
   #navDropdown li {
     text-align:center;
@@ -601,12 +635,20 @@ footer a {
     position:absolute;
     left:160px;
   }
+ 
+  
+  /* nav dropdown*/
 
-    /*  insurance accord section mobile 
-  #accordIns {
-    padding-left: 60px;
-    padding-right: 60px;
-  }*/
+      .dropdown ul {
+      margin-left:10px !important;
+      padding:0;
+    }
+    .dropdown .dropdown-menu li {
+      padding:0 !important;
+      background-color: #f0f0f0; 
+    }
+
+ 
 
   /* Office policies mobile*/
   #offPolContent {
@@ -617,6 +659,11 @@ footer a {
 
 /*_______________________--------------------------------__________________________*/
 @media (max-width: 991px) {
+
+  #tagline_section p{
+  font-size: 18px;
+  padding-bottom: 10px;
+}
 
 
   #buttons{
@@ -669,6 +716,11 @@ footer a {
     display:none !important;
   }
 
+    #tagline_section p{
+  font-size: 16px;
+  
+}
+
   #aboutTxt{
     padding-right:0px;
   }
@@ -681,6 +733,8 @@ footer a {
     display:block;
     margin:0 auto 30px;
   }
+
+
 }
 
 /*_______________________--------------------------------__________________________*/
@@ -757,9 +811,7 @@ footer a {
     font-size: 14px;
   }
 
-  .heroImg {
-    padding-bottom: 10px;
-  }
+
 
   #highlight_section {
     display: none;
@@ -769,6 +821,10 @@ footer a {
     margin-top: 5px;
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  #aboutTxt {
+    padding-right: 10px;
   }
   
   /*  insurance accord section mobile */
@@ -787,8 +843,12 @@ footer a {
     padding-right: 30px;
   }
 
+
     #buttons{
     margin-top:20px;
+  }
+  .btnimg{
+    float: none;
   }
 
 
@@ -808,6 +868,7 @@ footer a {
       padding-right: 30px;
     }
 
+
   /*  contact section mobile */
   #simpleContact {
     padding-left: 30px;
@@ -820,10 +881,6 @@ footer a {
     width: 100%;
     }
 
-
-
- 
-
 }
 
 /*_______________________--------------------------------__________________________*/
@@ -832,6 +889,7 @@ footer a {
     font-size:16px;
   }
   #navPhone {
+    padding-top: 12px;
     font-size:14px;
   }
 
