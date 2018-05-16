@@ -14,7 +14,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
         {{#GoogleWebmaster}}
         {{{GoogleWebmaster}}}
@@ -26,24 +26,16 @@
     {{{Styles}}}
 </head>
 
-<body{{#Editable}} ng-controller="editorController" {{/Editable}}>
-    <div class="containe-fluid top-nav">
-        <div class="nav-container">
-            <nav class="full-header navbar navbar-inverse navbar-static-top marginBottom-0" role="navigation" style="z-index: 100000;">
-                <div class="navbar-brand mr-auto" style="background-image: url('{{GetProviderBackgroundImageURL}}');">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data=-toggle="collapse" data-target="#navbar-collapse-1" style="border-color:tranparent;">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        {{> responsive_quick_links}}
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                        <ul class="nav navbar-nav custom-nav">
-                            {{{GetNavigaton}}}
-                        </ul>
-                    </div>
+<body>
+    <header>
+        <div id="topNav">
+            <div class="col-sm-8">
+                <div id="navLogo">
+                    <img src="assets/images/mdwht.png" id="practicelogo" class="img-fluid" alt="Responsive image">
+                </div>
+                <div id="headingTxt">
+                    <h1 id="practiceTxt">Texas Internal Medicine &amp; Diagnostics Center</h1>
+                    <p id="taglineTxt">Caring for the growing needs of our community.</p>
                 </div>
                
             </div >
@@ -285,7 +277,7 @@
     <div class="mainContent">
         <!-- Hero image -->
         <div class="heroImg">
-            <img src="imgs/bannerimg/1.png" alt="" class="img-responsive" alt="">
+            <img src="assets/images/bannerimg/1.png" class="img-responsive" id="imgBanner" alt="">
         </div>
         <!-- tagline text -->
         <div class="col-md-12" id='tagline_section'>
@@ -293,23 +285,25 @@
         </div>
         <!-- Highlight images -->
         <div class="col-md-12" id='highlight_section'>
-            <img src="imgs/highlightimg675x175.jpg" id='highlight_img'  class="img-responsive" alt="">
+            <img src="assets/images/highlightimg675x175.jpg" id='highlight_img'  class="img-responsive" alt="">
         </div>
 
         <!-- about us section -->
-        <div class="container-fluid"  id="aboutContent">
-            <div class='row'>
-                <div class="col-md-8" >
-                    <h2>About Us</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                        to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                        including versions of Lorem Ipsum.</p>
-                </div> 
-                <div class="col-md-4">
-                    <img src="imgs/docoffice.jpg" alt="" id="about_img">
+        <div class="container-fluid"  id="aboutContent" style="float:left">
+            <div class="width1200">
+                <div class='row'>
+                    <div class="col-sm-8" id="aboutTxt" >
+                        <h2>About Us</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                            to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                            including versions of Lorem Ipsum.</p>
+                    </div> 
+                    <div class="col-sm-4">
+                        <img src="assets/images/docoffice.jpg" alt="" id="about_img">
+                    </div>
                 </div>
             </div>
         </div>
@@ -362,35 +356,37 @@
         </div>
         
         <!-- office policies section -->
-        <div class="container-fluid" id="offPolContent">
-            <div class='row'>
-                <div class="col-md-8">
-                    <h2>Office Policies</h2>
-                    <h4>Appointments & Cancellations</h4>
-                    <p>You may schedule an appointment with a patient care coordinator.</p>
-                    <p>With the exception of serious emergencies, it is expected that you keep your appointments. If you need to reschedule an appointment,
-                        it is necessary that you advise the office at least 24 hours in advance. Your consideration in this matter will allow
-                        me to accommodate other patients who could benefit from an appointment.</p>
-                    <h4>Payment</h4>
-                    
-                <p>My office accepts the following methods of payment for co-payments, deductibles and services that are not covered by insurance:</p>
-
-                    <div class="row" id ="cards">
-                         <div class='col-xs-12 col-sm-6 col-md-6'>
-                            <img src="imgs/paymentOpt_amex.png" alt="" class="cardImg"><span class="cardTxt"> American Express</span><br>
-                            <img src="imgs/paymentOpt_discover.png" alt="" class="cardImg"><span class="cardTxt"> Discover</span>
+        <div class="container-fluid" id="offPolContent" style="float:left; width:100%">
+            <div class="width1200">
+                <div class='row'>
+                    <div class="col-md-8" id="offpolTxt">
+                        <h2>Office Policies</h2>
+                        <h4>Appointments &amp; Cancellations</h4>
+                        <p>You may schedule an appointment with a patient care coordinator.</p>
+                        <p>With the exception of serious emergencies, it is expected that you keep your appointments. If you need to reschedule an appointment,
+                            it is necessary that you advise the office at least 24 hours in advance. Your consideration in this matter will allow
+                            me to accommodate other patients who could benefit from an appointment.</p>
+                        <h4>Payment</h4>
+                        
+                    <p>My office accepts the following methods of payment for co-payments, deductibles and services that are not covered by insurance:</p>
+                        <div>
+                        <div class="row" id ="cards">
+                            <div class='col-xs-12 col-sm-6 col-md-6'>
+                                <div class="cardImg"><img src="assets/images/paymentOpt_amex.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; American Express</span></div>
+                                <div class="cardImg"><img src="assets/images/paymentOpt_discover.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; Discover</span></div>
+                            </div>
+                            <div class='col-xs-12 col-sm-6 col-md-6'>
+                                <div class="cardImg"><img src="assets/images/paymentOpt_master.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; Mastercard</span></div>
+                                <div class="cardImg"><img src="assets/images/paymentOpt_visa.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; Visa</span></div>
+                            </div>
                         </div>
-                        <div class='col-xs-12 col-sm-6 col-md-6'>
-                            <img src="imgs/paymentOpt_master.png" alt="" class="cardImg"><span class="cardTxt"> Mastercard</span><br>
-                            <img src="imgs/paymentOpt_visa.png" alt="" class="cardImg"><span class="cardTxt"> Visa</span>
-                         </div>
-                     </div>
-            
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4" id="bookapptImgs">
-                    <img src="imgs/btn_bookappt.jpg" alt="" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <img src="imgs/btn_portal.jpg" alt="" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <img src="imgs/btn_vcard.jpg" alt="" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4" id="buttons">
+                        <div class="col-xs-12 col-sm-4 col-md-12 buttonappt"><img src="assets/images/btn_bookappt.jpg" alt=""  class="btnimg"></div>
+                        <div class="col-xs-12 col-sm-4 col-md-12 buttonappt"><img src="assets/images/btn_portal.jpg" alt="" class="btnimg"></div>
+                        <div class="col-xs-12 col-sm-4 col-md-12 buttonappt"><img src="assets/images/btn_vcard.jpg" alt="" class="btnimg"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -551,11 +547,45 @@
                                 <td>9:00 AM - 5:00 PM</td>
                             </tr>
                         </table>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12" >
-                        <img src="imgs/Googlemap.jpg" alt="" class="img-fluid" id="locationInfo_map">
-                    </div>
-            </div>     
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12" id="locationInfo_hrs" >
+                            <h4 id="offhrs">Office Hours:</h4>
+                            <table>
+                                <tr>
+                                    <th>Sunday:</th>
+                                    <td>Closed</td>
+                                </tr>
+                                <tr>
+                                    <th>Monday:</th>
+                                    <td>9:00 AM - 5:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <th>Tuesday:</th>
+                                    <td>9:00 AM - 5:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <th>Wednesday:</th>
+                                    <td>9:00 AM - 5:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <th>Thursday:</th>
+                                    <td>9:00 AM - 5:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <th>Friday:</th>
+                                    <td>9:00 AM - 5:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <th>Saturday:</th>
+                                    <td>9:00 AM - 5:00 PM</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12" >
+                            <img src="assets/images/Googlemap.jpg" alt="" class="img-fluid" id="locationInfo_map">
+                        </div>
+                </div> 
+            </div>    
         </div>
         <!--Contact Form-->
         <div class="container-fluid" id="simpleContact">
@@ -650,7 +680,7 @@
             <div class="footerContent">
                 <div class="row noMargin">
                     <div class="col-sm-4 col-md-6 noPadding">
-                        <img src="imgs/leonardo_client_website_footer_practice.png" width="154" height="60" hspace="60">
+                        <img src="assets/images/leonardo_client_website_footer_practice.png" width="154" height="60" hspace="60">
                     </div>
                     <div class="col-sm-8 col-md-6 noPadding">
                         <ul>
@@ -682,22 +712,22 @@
                 </div>
                 <div class="footmenuSocial">
                     <a href="#">
-                        <img src="imgs/social_facebook.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_facebook.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_google.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_google.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_linkedin.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_linkedin.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_twitter.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_twitter.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_youtube.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_youtube.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_instagram.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_instagram.png" width="36" height="36" class="iconSocial">
                     </a>
                 </div>
                 <br>
@@ -721,9 +751,9 @@
    
 
     <!-- Accordion JavaScript -->
-    <script src="js/jq-toggleDisplayItems.js"></script>
-    <script src="js/stickyNav.js"></script>
-    <!--<script> src="js/dropdown.js"</script>-->
+    <script src="assets/js/jq-toggleDisplayItems.js"></script>
+    <script src="assets/js/stickyNav.js"></script>
+    <!--<script> src="assets/js/dropdown.js"</script>-->
 
     <script type="application/javascript">
         (function ($) {
