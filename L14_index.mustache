@@ -1,14 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en {{#Editable}} ng-app="editorApp" {{/Editable}}">
 
 <head>
     <title>{{GetTitle}}</title>
         {{{getDescription}}}
         {{{getKeywords}}}
-    <!-- Required meta tags  -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!--Bootstrap 3 CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
@@ -17,10 +13,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="theme.css">
-
-    
+    <link rel="stylesheet" href="assets/css/style.css">
         {{#GoogleWebmaster}}
         {{{GoogleWebmaster}}}
         {{/GoogleWebmaster}}
@@ -29,106 +22,259 @@
         {{/BingWebmaster}} 
     
     {{{Styles}}}
+
 </head>
 
-<body{{#Editable}} ng-controller="editorController" {{/Editable}}>
-    <!--Top Nav with logo phone num-->
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark flex-row fixed-top">
-        <a class="navbar-brand mr-auto" href="#">
-            <img src="imgs/mdwht.png" id="logo" class="img-responsive" alt=""{{GetProviderBackgroundImageURL}}>
-        </a>
-        <ul class="navbar-nav flex-row mr-lg-0">
-            <li class="nav-item">
-                <a class="nav-link pr-2">
-                    
-                    <span id="navPhone" ><i class="fas fw fa-phone-square"></i>  555-555-5555</span>
-                    {{GetMainPhone}} 
-                    {{GetFaxPhone}}
-                </a>
-            </li>
-        </ul>
-        <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-                {{{GetNavigation}}}
-        </button>
-
-        {{> responsive_quick_links}}
-    </nav>
-    
-    <!--Bottom navigation links-->
-    <nav class="navbar navbar-expand-xl navbar-light fixed-top" id="navLinks">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-            <ul class="navbar-nav mr-auto">
-               {{GetNavigation}}
-  
-                <li class="nav-item dropdown">
-                        
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Our Providers
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Provider1</a>
-                            <a class="dropdown-item" href="#">Provider2</a>
-                            <a class="dropdown-item" href="#">Provider3</a>
-                            <a class="dropdown-item" href="#">Provider4</a>
-                            <a class="dropdown-item" href="#">Provider5</a>
-                        </div>
-                  
-                </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Treatment Specialities
-                        </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Treatment Speciality 1</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 2</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 3</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 4</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 5</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 6</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 7</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 8</a>
-                                <a class="dropdown-item" href="#">Treatment Speciality 9</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Patient Education
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Patient Education 01</a>
-                            <a class="dropdown-item" href="#">Patient Education 02</a>
-                            <a class="dropdown-item" href="#">Patient Education 03</a>
-                            <a class="dropdown-item" href="#">Patient Education 04</a>
-                            <a class="dropdown-item" href="#">Patient Education 05</a>
-                            <a class="dropdown-item" href="#">Patient Education 06</a>
-                            <a class="dropdown-item" href="#">Patient Education 07</a>
-                            <a class="dropdown-item" href="#">Patient Education 08</a>
-                            <a class="dropdown-item" href="#">Patient Education 09</a>
-                            <a class="dropdown-item" href="#">Patient Education 10</a>
-                            <a class="dropdown-item" href="#">Patient Education 11</a>
-                            <a class="dropdown-item" href="#">Patient Education 12</a>
-                            <a class="dropdown-item" href="#">Patient Education 13</a>
-                            <a class="dropdown-item" href="#">Patient Education 14</a>
-                            <a class="dropdown-item" href="#">Patient Education 15</a>
-                            <a class="dropdown-item" href="#">Patient Education 16</a>
-                            <a class="dropdown-item" href="#">Patient Education 17</a>
-                            <a class="dropdown-item" href="#">Patient Education 18</a>
-                            <a class="dropdown-item" href="#">Patient Education 19</a>
-                            <a class="dropdown-item" href="#">Patient Education 20</a>
-                        </div>
-                    </li>
+<body>
+    <header>
+        <div id="topNav">
+            <div class="col-sm-8">
+                <div id="navLogo">
+                    <img src="assets/images/mdwht.png" id="practicelogo" class="img-fluid" alt="Responsive imag{{GetProviderBackgroundImageURL}}>e">
+                </div>
+                {{GetPracticeName}}
+                <div id="headingTxt">
+                   {{!<h1 id="practiceTxt">Texas Internal Medicine &amp; Diagnostics Center</h1>
+                    <p id="taglineTxt">Caring for the growing needs of our community.</p>}}
+                </div>
+               
+            </div >
+            <div class="col-sm-4" id="phoneNums">
+                {{GetMainPhone}}
+                <div id="navPhone">
+                    {{!<i class="fas fw fa-phone-square"></i> 555-555-5555}}
+                </div> 
+                 {{GetFaxPhone}}
+                <div id="navPhone2">
+                    <i class="fas fw fa-fax"></i> 555-555-5555
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+        {{GetNavigation}}
+            {{!<ul class="mainNav">
                 <li>
-                <li class="nav-item">
-                    {{GetPracticeName}}<br />
-					{{#GetAddressLine2}}{{GetAddressLine2}}<br/>{{/GetAddressLine2}}
-					{{GetAddressLine1}}<br />
-				    {{GetCity}}, {{GetState}} {{GetZip}}<br>
-                    <a class="nav-item nav-link" href="#">Location</a>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Office Policies</a>
+                </li>
+                <li>
+                    <a href="#">Our Providers</a>
+                </li>
+                <li>
+                    <a href="#">EMR Portal</a>
+                </li>}}
+                <li class="dropdown">
+                {{GetPatientEducation}}
+                    {{!<a href="#" data-toggle="dropdown" class="dropdown-toggle">Patient Education</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR ARTHRITIS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR BURN INJURIES</a>
+                        </li>
+                        <li>
+                            <a href="#"> RANGE-OF-MOTION EXERCISES</a>
+                        </li>
+                        <li>
+                            <a href="#"> EXTRACORPOREAL SHOCKWAVE THERAPY </a>
+                        </li>
+                        <li>
+                            <a href="#"> HYDROTHERAPY</a>
+                        </li>
+                        <li>
+                            <a href="#"> ACTIVE RELEASE TECHNIQUE TREATMENT</a>
+                        </li>
+                        <li>
+                            <a href="#"> BONE MINERAL DENSITY TEST </a>
+                        </li>
+                        <li>
+                            <a href="#"> INTRADISCAL ELECTROTHERMAL THERAPY</a>
+                        </li>
+                        <li>
+                            <a href="#"> GAIT ANALYSIS </a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR ROTATOR CUFF INJURY</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR A TORN MENISCUS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR SPINAL CONDITIONS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR LATERAL EPICONDYLITIS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR BURSITIS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR ANTERIOR CRUCIATE LIGAMENT INJURY</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR WHIPLASH</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR AMPUTEES</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION AFTER KNEE ARTHROPLASTY</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION AFTER HIP ARTHROPLASTY</a>
+                        </li>
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR SHOULDER CONDITIONS</a>
+                        </li>
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR ANKLE CONDITIONS</a>
+                        </li>
+                        <li>
+                            <a href="#" >PHYSICAL THERAPY FOR KNEE PAIN</a>
+                        </li>
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR FIBROMYALGIA</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION AFTER SHOULDER SURGERY</a>
+                        </li>
+                    </ul>}}
+                </li>
+                <li>
+                    <a href="#">Locations</a>
+                    {{GetLocations}}
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                    {{GetContact}}
+                </li>
+            </ul>
+            <!-- Mobile Navigation Elements -->
+            <span data-toggle="collapse" data-target="#navDropdown" class="navmenuTitle">Menu</span>
+            <span data-toggle="collapse" data-target="#navDropdown" class="glyphicon glyphicon-menu-hamburger btnMenu"></span>
+            <a href="#">
+                <span class="glyphicon glyphicon-home btnHome"></span>
+            </a>
+            <a href="#">
+                <span class="glyphicon glyphicon-earphone btnPhone"></span>
+            </a>
+            <a href="#">
+                <span class="glyphicon glyphicon-calendar btnAppt"></span>
+            </a> 
+            <a href="#">
+                <span class="glyphicon glyphicon-plus-sign btnPort"></span> 
+            </a>
+            <a href="#">
+                <span class="glyphicon glyphicon-download-alt btnDolo"></span>
+            </a>
+          
+        </div>
+        <div id="navDropdown" class="collapse">
+            {{GetNavigation}}
+            <ul >
+               {{!<li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Office Policies</a>
+                </li>
+                <li>
+                    <a href="#">Our Providers</a>
+                </li>
+                <li>
+                    <a href="#">EMR Portal</a>
+                </li>}}
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Patient Education</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR ARTHRITIS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR BURN INJURIES</a>
+                        </li>
+                        <li>
+                            <a href="#"> RANGE-OF-MOTION EXERCISES</a>
+                        </li>
+                        <li>
+                            <a href="#"> EXTRACORPOREAL SHOCKWAVE THERAPY </a>
+                        </li>
+                        <li>
+                            <a href="#"> HYDROTHERAPY</a>
+                        </li>
+                        <li>
+                            <a href="#"> ACTIVE RELEASE TECHNIQUE TREATMENT</a>
+                        </li>
+                        <li>
+                            <a href="#"> BONE MINERAL DENSITY TEST </a>
+                        </li>
+                        <li>
+                            <a href="#"> INTRADISCAL ELECTROTHERMAL THERAPY</a>
+                        </li>
+                        <li>
+                            <a href="#"> GAIT ANALYSIS </a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR ROTATOR CUFF INJURY</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR A TORN MENISCUS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR SPINAL CONDITIONS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR LATERAL EPICONDYLITIS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR BURSITIS</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR ANTERIOR CRUCIATE LIGAMENT INJURY</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR WHIPLASH</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION FOR AMPUTEES</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION AFTER KNEE ARTHROPLASTY</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION AFTER HIP ARTHROPLASTY</a>
+                        </li>
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR SHOULDER CONDITIONS</a>
+                        </li>
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR ANKLE CONDITIONS</a>
+                        </li>
+                        <li>
+                            <a href="#">PHYSICAL THERAPY FOR KNEE PAIN</a>
+                        </li>
+                        <li>
+                            <a href="#"> PHYSICAL THERAPY FOR FIBROMYALGIA</a>
+                        </li>
+                        <li>
+                            <a href="#"> REHABILITATION AFTER SHOULDER SURGERY</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Locations</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
                 </li>
             </ul>
 
@@ -138,31 +284,33 @@
     <div class="mainContent">
         <!-- Hero image -->
         <div class="heroImg">
-            <img src="imgs/bannerimg/1.png" alt="" class="img-responsive" alt="">
+            <img src="assets/images/bannerimg/1.png" class="img-responsive" id="imgBanner" alt="">
         </div>
         <!-- tagline text -->
         <div class="col-md-12" id='tagline_section'>
            <p>Tagline Section</p>
         </div>
-        <!-- Highlight images -->
+        <!-- Highlight images 
         <div class="col-md-12" id='highlight_section'>
-            <img src="imgs/highlightimg675x175.jpg" id='highlight_img'  class="img-responsive" alt="">
-        </div>
+            <img src="assets/images/highlightimg675x175.jpg" id='highlight_img'  class="img-responsive" alt="">
+        </div>-->
 
         <!-- about us section -->
-        <div class="container-fluid"  id="aboutContent">
-            <div class='row'>
-                <div class="col-md-8" >
-                    <h3>About Us</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                        to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                        including versions of Lorem Ipsum.</p>
-                </div> 
-                <div class="col-md-4">
-                    <img src="imgs/docoffice.jpg" alt="" id="about_img">
+        <div class="container-fluid"  id="aboutContent" style="float:left">
+            <div class="width1200">
+                <div class='row'>
+                    <div class="col-sm-8" id="aboutTxt" >
+                        <h2>About Us</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                            to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                            including versions of Lorem Ipsum.</p>
+                    </div> 
+                    <div class="col-sm-4">
+                        <img src="assets/images/docoffice.jpg" alt="" id="about_img">
+                    </div>
                 </div>
             </div>
         </div>
@@ -172,11 +320,11 @@
             <div class='container-fluid' id="accordIns">
                 <div class="row" >
                     <div class="col-lg-4 col-md-12 col-sm-12">
-                        <h3>Accepted Insurances</h3>
+                        <h2>Accepted Insurances</h2>
                     </div>
                     <div class="col-lg-8 col-md-12 col-md-12" >
                         <div class="row noMargin">
-                            {{! <ul class="txtDefault_byState">
+                            {{!<ul class="txtDefault_byState">
                                 <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">State Insurance 001</li>
                                 <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">State Insurance 002</li>
                                 <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">State Insurance 003</li>
@@ -197,11 +345,11 @@
                                 <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpIns-item">State Insurance 018</li>
                                 <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpIns-item">State Insurance 019</li>
                                 <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpIns-item">State Insurance 020</li>
-                            </ul> }}
+                            </ul>}}
                             {{^GetInsurances}}Contact my office for a list of accepted insurance plans.{{/GetInsurances}}
-{{#GetInsurances}}
-{{insurance_name}}
-{{/GetInsurances}}
+                            {{#GetInsurances}}
+                            {{insurance_name}}
+                            {{/GetInsurances}}
                         </div>
                         <div class="col-12 fullInsurance">
                             <p id="moreIns-trig" class="showInsurance noMargin">
@@ -219,38 +367,44 @@
         </div>
         
         <!-- office policies section -->
-        <div class="container-fluid" id="offPolContent">
-            <div class='row'>
-                <div class="col-md-8">
-                    <h3>Office Policies</h3>
-                    <h6>Appointments & Cancellations</h6>
-                    <p>You may schedule an appointment with a patient care coordinator.</p>
-                    <p>With the exception of serious emergencies, it is expected that you keep your appointments. If you need to reschedule an appointment,
-                        it is necessary that you advise the office at least 24 hours in advance. Your consideration in this matter will allow
-                        me to accommodate other patients who could benefit from an appointment.</p>
-                    <h6>Payment</h6>
-                    
-                    {{#GetSiteFinances}}My office accepts the following methods of payment for co-payments, deductibles and services that are not covered by insurance:{{/GetSiteFinances}}
+        <div class="container-fluid" id="offPolContent" style="float:left; width:100%">
+            <div class="width1200">
+                <div class='row'>
+                    <div class="col-md-8" id="offpolTxt">
+                        <h2>Office Policies</h2>
+                        <h4>Appointments &amp; Cancellations</h4>
+                        <p>You may schedule an appointment with a patient care coordinator.</p>
+                        <p>With the exception of serious emergencies, it is expected that you keep your appointments. If you need to reschedule an appointment,
+                            it is necessary that you advise the office at least 24 hours in advance. Your consideration in this matter will allow
+                            me to accommodate other patients who could benefit from an appointment.</p>
+                        <h4>Payment</h4>
+                        
+                    {{^GetSiteFinances}}My office accepts the following methods of payment for co-payments, deductibles and services that are not covered by insurance:{{/GetSiteFinances}}
                         {{{GetSiteFinances}}}
-                    <div class="row" id ="cards">
-                         <div class='col-sm-12 col-md-6 col-lg-6'>
-                            <img src="imgs/paymentOpt_amex.png" alt="" class="cardImg"><span class="cardTxt"> American Express</span><br>
-                            <img src="imgs/paymentOpt_discover.png" alt="" class="cardImg"><span class="cardTxt"> Discover</span>
+                        <div>
+                        <div class="row" id ="cards">
+                            <div class='col-xs-12 col-sm-6 col-md-6'>
+                                {{GetSiteFinances}}
+                                {{!<div class="cardImg"><img src="assets/images/paymentOpt_amex.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; American Express</span></div>
+                                <div class="cardImg"><img src="assets/images/paymentOpt_discover.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; Discover</span></div>}}
+                            </div>
+                            <div class='col-xs-12 col-sm-6 col-md-6'>
+                                {{GetSiteFinances}}
+                               {{!<div class="cardImg"><img src="assets/images/paymentOpt_master.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; Mastercard</span></div>
+                                <div class="cardImg"><img src="assets/images/paymentOpt_visa.png" alt=""><span class="cardTxt"> &nbsp;&nbsp; Visa</span></div>}}
+                            </div>
                         </div>
-                        <div class='col-sm-12 col-md-6 col-lg-6'>
-                            <img src="imgs/paymentOpt_master.png" alt="" class="cardImg"><span class="cardTxt"> Mastercard</span><br>
-                            <img src="imgs/paymentOpt_visa.png" alt="" class="cardImg"><span class="cardTxt"> Visa</span>
-                         </div>
-                     </div>
-            
+                    </div>
+                    </div>
+                    {{GetRequestAppointment}}
+                        {{IsDoctorCom}}
+                    <div class="col-sm-12 col-md-4 col-lg-4" id="buttons">
+                        {{!<div class="col-xs-12 col-sm-4 col-md-12 buttonappt"><img src="assets/images/btn_bookappt.jpg" alt=""  class="btnimg"></div>
+                        <div class="col-xs-12 col-sm-4 col-md-12 buttonappt"><img src="assets/images/btn_portal.jpg" alt="" class="btnimg"></div>
+                        <div class="col-xs-12 col-sm-4 col-md-12 buttonappt"><img src="assets/images/btn_vcard.jpg" alt="" class="btnimg"></div>}}
+                        
+                    </div>
                 </div>
-                {{{GetRequestAppointment}}}
-                <div class="col-md-4" id="bookapptImgs">
-                    <img src="imgs/btn_bookappt.jpg" alt="" class="bookappt_img">
-                    <img src="imgs/btn_portal.jpg" alt="" class="bookappt_img">
-                    <img src="imgs/btn_vcard.jpg" alt="" class="bookappt_img">
-                </div>
-                {{{GetRequestAppointment}}}
             </div>
         </div>
 
@@ -259,88 +413,90 @@
             <div class='container-fluid' id="accordEdu">
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
-                        <h3>Patient Education</h3>
+                        <h2>Patient Education</h2>
                     </div>
+                    {{GetSpecialtyList}}
                     <div class="col-lg-8 col-md-12 col-md-12">
-                        <div class="row noMargin">
+                        {{!<div class="row noMargin">
                             <ul class="txtDefault_bySpecialty">
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 001</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 002</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 003</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 004</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 005</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 006</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 007</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 008</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 009</a>
                                 </li>
-                                <li class="">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list">
                                     <a>Specialty Content 010</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 011</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 012</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 013</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 014</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 015</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 016</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 017</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 018</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 019</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 020</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 021</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 022</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 023</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 024</a>
                                 </li>
-                                <li class=" xpContent-item">
+                                <li class="col-xxs-12 col-xs-12 col-sm-6 col-md-6 accordion-list xpContent-item">
                                     <a>Specialty Content 025</a>
                                 </li>
+                   
                             </ul>
-                        </div>
+                        </div>}}
                         <div class="col-12 fullContent">
                             <p id="moreContent-trig" class="showContent noMargin">
                                 <strong>Show More</strong> Patient Education
@@ -351,18 +507,23 @@
                                 <span class="fas fa-angle-up"></span>
                             </p>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Locations section -->
         <div class="container-fluid" id="locationContent" >
-            <h3 style="padding-bottom:3px;">Locations</h3>
-            <div class='row'>
-                    <div class="col-lg-4 col-md-6 col-sm-12" id="locationInfo_addr" >
-                    <h5>Medical Center Name </h5>
-                    <h6>999 Main St<br>Massapequa, NY 11758-1234</h6>
+            <h2>Locations</h2>
+                {{GetPracticeName}}
+				{{#GetAddressLine2}}
+                {{GetAddressLine2}}
+                {{/GetAddressLine2}}
+				{{GetAddressLine1}}
+				{{GetCity}} {{GetState}} {{GetZip}}
+                <div class='row'>
+                   {{!<div class="col-md-4 col-sm-6 col-xs-12" id="locationInfo_addr" >
+                    <h4>Medical Center Name </h4>
+                    <h5>999 Main St<br>Massapequa, NY 11758-1234</h5>
                     <table>
                         <tr>
                             <th>Phone:</th>
@@ -377,50 +538,84 @@
                             <td>555-555-5555</td>
                         </tr>
                     </table>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12" id="locationInfo_hrs" >
-                        <h5>Office Hours:</h5>
+                    </div>}}
+                        <div class="col-md-4 col-sm-6 col-xs-12" id="locationInfo_hrs" >
+                        <h4>Office Hours:</h4>
                         <table>
                             <tr>
                                 <th>Sunday:</th>
-                                <td>Closed</td>
+                                <td>{{Sunday}}</td>
                             </tr>
                             <tr>
                                 <th>Monday:</th>
-                                <td>9:00 AM - 5:00 PM</td>
+                                <td>{{Monday}}</td>
                             </tr>
                             <tr>
                                 <th>Tuesday:</th>
-                                <td>9:00 AM - 5:00 PM</td>
+                                <td>{{Tuesday}}</td>
                             </tr>
                             <tr>
                                 <th>Wednesday:</th>
-                                <td>9:00 AM - 5:00 PM</td>
+                                <td>{{Wednesday}}</td>
                             </tr>
                             <tr>
                                 <th>Thursday:</th>
-                                <td>9:00 AM - 5:00 PM</td>
+                                <td>{{Thursday}}</td>
                             </tr>
                             <tr>
                                 <th>Friday:</th>
-                                <td>9:00 AM - 5:00 PM</td>
+                                <td>{{Friday}}</td>
                             </tr>
                             <tr>
                                 <th>Saturday:</th>
-                                <td>9:00 AM - 5:00 PM</td>
+                                <td>{{Saturday}}</td>
                             </tr>
                         </table>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12" >
-                        <img src="imgs/Googlemap.jpg" alt="" id="locationInfo_map">
-                    </div>
-            </div>     
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12" id="locationInfo_hrs" >
+                            <h4 id="offhrs">Office Hours:</h4>
+                            <table>
+                                <tr>
+                                    <th>Sunday:</th>
+                                    <td>{{Sunday}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Monday:</th>
+                                    <td>{{Monday}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tuesday:</th>
+                                    <td>{{Tuesday}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Wednesday:</th>
+                                    <td>{{Wednesday}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Thursday:</th>
+                                    <td>{{Thursday}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Friday:</th>
+                                    <td>{{Friday}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Saturday:</th>
+                                    <td>{{Saturday}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12" >
+                            <img src="assets/images/Googlemap.jpg" alt="" class="img-fluid" id="locationInfo_map">
+                        </div>
+                </div> 
+            </div>    
         </div>
         <!--Contact Form-->
         <div class="container-fluid" id="simpleContact">
             <div class='row'>
                 <div class="col-lg-12">
-                    <h3>Contact</h3>
+                    <h2>Contact</h2>
                     <p><b><u>Do not</u></b> use this form in case of an emergency!</p>
                     <form id="contact-form" method="post" action="#" role="form" >
                         <div class="controls">
@@ -506,14 +701,27 @@
         </div>
         <!--Footer Section-->
         <footer>
-            <div class="mainFooter">
+            <div class="footerContent">
+                {{> providerfooter}} 
+                {{> providerfloatingdock}} 
+                {{#Scripts}} 
+                {{/Scripts}} 
+                {{{FooterAssets}}} 
+                {{#Editable}} 
+                {{> editor}} 
+                {{> image_editor}} 
+                {{/Editable}} 
+                {{> navigation_jquery}} 
+                {{> bkappointment}}
+                 {{> vcarddownload}} 
+                 {{{GetGoogleTrackingCode}}}
                 <div class="row noMargin">
                     <div class="col-sm-4 col-md-6 noPadding">
-                        <img src="imgs/leonardo_client_website_footer_practice.png" width="154" height="60" hspace="60">
+                        <img src="assets/images/leonardo_client_website_footer_practice.png" width="154" height="60" hspace="60">
                     </div>
                     <div class="col-sm-8 col-md-6 noPadding">
                         <ul>
-                            <div class="col-12 col-s-6 noPadding">
+                            <div class="col-xxs-12 col-xs-6 noPadding">
                                 <li>
                                     <a href="#">Terms of Use</a>
                                 </li>
@@ -524,7 +732,7 @@
                                     <a href="#">Website Privacy Policy</a>
                                 </li>
                             </div>
-                            <div class="col-12 col-s-6 noPadding">
+                            <div class="col-xxs-12 col-xs-6 noPadding">
                                 <li>
                                     <a href="#">Book an Appointment</a>
                                 </li>
@@ -534,49 +742,88 @@
                                 <li>
                                     <a href="#">Contact Us</a>
                                 </li>
+
                             </div>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-12 footnote" >
-                    Copyright © 2018 by
-                    <strong>[providerName]</strong> and
-                    <strong>Dr. Leonardo Interactive Webservices, LLC</strong>. All Rights Reserved.
-                </div>
                 <div class="footmenuSocial">
-                    <a href="#">
-                        <img src="imgs/social_facebook.png" width="36" height="36" class="iconSocial">
+                   
+                    {{!<a href="#">
+                        <img src="assets/images/social_facebook.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_google.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_google.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_linkedin.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_linkedin.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_twitter.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_twitter.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_youtube.png" width="36" height="36" class="iconSocial">
+                        <img src="assets/images/social_youtube.png" width="36" height="36" class="iconSocial">
                     </a>
                     <a href="#">
-                        <img src="imgs/social_instagram.png" width="36" height="36" class="iconSocial">
-                    </a>
+                        <img src="assets/images/social_instagram.png" width="36" height="36" class="iconSocial">
+                    </a>}}
+                </div> {{GetSocialWidgets}}
+                <br>
+                <div class="col-lg-12 footnote">
+                    Copyright © 2018 by
+                    <strong>[practiceName]</strong> and
+                    <strong>Dr. Leonardo Interactive Webservices, LLC</strong>. All Rights Reserved.
                 </div>
             </div>
         </footer>
     </div> <!--Closing mainContent div-->
 
 <!-- EXTERNAL JAVASCRIPT -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+ 
+    
+   
 
     <!-- Accordion JavaScript -->
-    <script src="jq-toggleDisplayItems.js"></script>
+    <script src="assets/js/jq-toggleDisplayItems.js"></script>
+    <script src="assets/js/stickyNav.js"></script>
+    <!--<script> src="assets/js/dropdown.js"</script>-->
+
+    <script type="application/javascript">
+        (function ($) {
+            $(document).ready(function () {
+                if ($(window).width() > 767) {
+                    $(".dropdown").mouseenter(function () { //change .mouseover to .mouseenter
+                        $(this).children("ul.dropdown-menu").fadeIn('fast');
+                    });
+                    $("[class=dropdown],.dropdown-submenu").mouseleave(function () {
+                        $(this).children(".dropdown-menu").fadeOut('fast');
+                    });
+                    // $('ul.custom-nav [data-toggle=dropdown]').mouseover(function(event) {
+                    // 	// event.preventDefault();
+                    //     //       event.stopPropagation();
+                    // 	$(this).parent().siblings().removeClass('open');
+                    // 	$(this).parent().toggleClass('open');
+                    //     console.log($(this))
+                    //
+                    // });
+                } else {
+                    //	$('.custom-nav [data-toggle=dropdown]').on('click', function(event) {
+                    $('.custom-nav .dropdown-toggle').on('click', function (event) {
+                        console.log("custom nav click");
+                        event.preventDefault();
+                        event.stopPropagation();
+                        $(this).parent().siblings().removeClass('open');
+                        $(this).parent().toggleClass('open');
+                    });
+                }
+            });
+        })(jQuery);
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -589,6 +836,7 @@
 </body>
 
 </html>
+
 
 
 
